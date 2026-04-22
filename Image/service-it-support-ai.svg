@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">AI IT Support Illustration</title>
+  <desc id="desc">Support avatar with headset, shield and tools for IT support.</desc>
+  <defs>
+    <linearGradient id="bg4" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFF6E9"/>
+      <stop offset="100%" stop-color="#FFE5C3"/>
+    </linearGradient>
+    <linearGradient id="accent4" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFB24A"/>
+      <stop offset="100%" stop-color="#E27E19"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg4)"/>
+  <circle cx="1060" cy="130" r="120" fill="#FFDCAA" opacity="0.6"/>
+  <circle cx="130" cy="690" r="140" fill="#FFD29A" opacity="0.6"/>
+  <rect x="250" y="120" width="700" height="560" rx="42" fill="#FFFFFF" opacity="0.94"/>
+  <circle cx="600" cy="330" r="140" fill="#FFEED8"/>
+  <circle cx="600" cy="300" r="72" fill="#FFC775"/>
+  <path d="M510 410 C540 360, 660 360, 690 410 V470 H510 Z" fill="#F3A13B"/>
+  <path d="M520 290 C520 235, 560 200, 600 200 C640 200, 680 235, 680 290" fill="none" stroke="#E2891F" stroke-width="18" stroke-linecap="round"/>
+  <rect x="670" y="300" width="34" height="66" rx="17" fill="#E2891F"/>
+  <circle cx="716" cy="364" r="18" fill="#E2891F"/>
+  <g transform="translate(355 490)">
+    <rect x="0" y="0" width="220" height="140" rx="20" fill="#FFF5E6" stroke="#FFD39F" stroke-width="4"/>
+    <path d="M48 74 H172" stroke="#E48A22" stroke-width="16" stroke-linecap="round"/>
+    <path d="M110 42 V106" stroke="#E48A22" stroke-width="16" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(640 488)">
+    <path d="M40 20 L190 20 L220 60 L130 150 L90 110 L150 60 L40 60 Z" fill="#FFE8C6" stroke="#F1B15D" stroke-width="5"/>
+  </g>
+</svg>
