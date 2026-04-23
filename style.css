@@ -13,6 +13,9 @@
    --profile-sticky-top: 22px;
    --profile-image-gap: 14px;
    --profile-image-height: min(72svh, 760px);
+   --layout-max-width: 1460px;
+   --layout-padding: clamp(12px, 2.2vw, 24px);
+   --sidebar-width: min(420px, 30vw);
 }
 
 html {
@@ -42,6 +45,7 @@ button {
 body {
    min-height: 100vh;
    min-height: 100dvh;
+   overflow-x: hidden;
    font-family: "Outfit", "Segoe UI", sans-serif;
    color: var(--text-main);
    background: radial-gradient(circle at 8% 12%, rgba(215, 96, 63, 0.22), transparent 38%),
@@ -51,20 +55,20 @@ body {
 
 .page {
    width: 100%;
-   max-width: none;
-   margin: 0;
-   padding: 20px;
+   max-width: var(--layout-max-width);
+   margin: 0 auto;
+   padding: var(--layout-padding);
    display: flex;
    align-items: flex-start;
    justify-content: space-between;
-   gap: 24px;
+   gap: clamp(14px, 2vw, 24px);
    animation: page-enter 0.7s ease;
 }
 
 @supports (display: grid) {
    .page {
       display: grid;
-      grid-template-columns: minmax(0, 1.8fr) minmax(220px, 0.8fr);
+      grid-template-columns: minmax(0, 1fr) minmax(260px, var(--sidebar-width));
    }
 }
 
@@ -88,8 +92,8 @@ body {
 }
 
 .profile {
-   width: 30%;
-   flex: 0 0 30%;
+   width: var(--sidebar-width);
+   flex: 0 0 var(--sidebar-width);
    order: 2;
    position: sticky;
    top: var(--profile-sticky-top);
@@ -117,10 +121,10 @@ body {
 }
 
 .profile-details {
-   width: 30%;
+   width: var(--sidebar-width);
    order: 3;
    position: fixed;
-   right: 20px;
+   right: max(var(--layout-padding), calc((100vw - var(--layout-max-width)) / 2 + var(--layout-padding)));
    top: calc(var(--profile-sticky-top) + var(--profile-image-height) + 50px);
    padding: 14px;
    z-index: 4;
@@ -161,7 +165,7 @@ body {
 }
 
 .profile-info {
-   width: 68%;
+   width: calc(100% - var(--sidebar-width) - clamp(14px, 2vw, 24px));
    flex: 1 1 auto;
    order: 1;
    padding: 30px;
@@ -182,9 +186,24 @@ body {
    }
 
    .profile-details {
-      width: 30%;
+      width: var(--sidebar-width);
       flex: none;
       order: initial;
+   }
+}
+
+@media only screen and (max-width: 1280px) {
+   .profile-details {
+      width: 100%;
+      position: static;
+      right: auto;
+      top: auto;
+      z-index: auto;
+   }
+
+   .profile-info {
+      width: 100%;
+      grid-row: auto;
    }
 }
 
@@ -441,8 +460,19 @@ body {
 }
 
 @media only screen and (max-width: 640px) {
+   .page {
+      gap: 12px;
+      padding: 10px;
+   }
+
    .profile-info {
       padding: 18px;
+   }
+
+    .profile,
+    .profile-details,
+    .profile-info {
+      border-radius: 16px;
    }
 
    .services {
@@ -465,6 +495,77 @@ body {
    .cont span {
       font-size: 0.92rem;
       margin-right: 10px;
+   }
+}
+
+@media only screen and (max-width: 420px) {
+   .profile img {
+      height: min(46svh, 420px);
+   }
+
+   .profile-mini {
+      padding: 10px;
+   }
+
+   .profile-mini-name {
+      font-size: 0.98rem;
+   }
+
+   .profile-mini-contact {
+      font-size: 0.82rem;
+   }
+
+   .profile-info h1 {
+      font-size: clamp(1.55rem, 8vw, 1.9rem);
+   }
+
+   .form-box {
+      padding: 12px;
+   }
+}
+
+@media only screen and (max-width: 932px) and (orientation: landscape) {
+   .page {
+      grid-template-columns: 1fr;
+   }
+
+   .profile,
+   .profile-details,
+   .profile-info {
+      width: 100%;
+      position: static;
+   }
+
+   .profile img {
+      height: min(70svh, 420px);
+   }
+}
+
+@media only screen and (min-width: 744px) and (max-width: 834px) {
+   .services {
+      width: calc(50% - 10px);
+   }
+
+   .profile-info {
+      padding: 24px;
+   }
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1366px) {
+   :root {
+      --sidebar-width: min(360px, 30vw);
+      --profile-image-height: min(66svh, 660px);
+   }
+}
+
+@media only screen and (min-width: 1536px) {
+   :root {
+      --layout-max-width: 1680px;
+      --sidebar-width: min(460px, 28vw);
+   }
+
+   .profile-info {
+      padding: 34px;
    }
 }
 
